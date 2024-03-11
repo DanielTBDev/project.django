@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=devide-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <a class="navbar-brand" href="/">
+                    <i class="fa fa-rocket" aria-hidden="true"></i>
+                    <span style="font-weight:bold;color:#333">Alguma escola ai...</span>
+                </a>
+
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+
+        {% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2023 - Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
