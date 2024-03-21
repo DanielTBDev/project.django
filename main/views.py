@@ -2,7 +2,7 @@ from .models import Aluno
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy, reverse
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import UpdateView, CreateView
 from .forms import AlunoForm
 
 def alunoView(request):
@@ -35,4 +35,10 @@ def aluno_create_view(request):
     else:
         form = AlunoForm()
 
-    return render(request, 'aluno_form.html', {'form': form})
+    return render(request, 'main/aluno_form.html', {'form': form})
+
+class AlunoUpdateView(UpdateView):
+    model = Aluno
+    form_class = AlunoForm
+    template_name = 'main/aluno_form.html'
+    success_url = reverse_lazy('aluno-lista')
