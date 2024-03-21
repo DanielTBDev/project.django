@@ -20,6 +20,7 @@
                         <td>{{ aluno.email }}</td>
                         <td>{{ aluno.telefone }}</td>
                         <td><a href="/aluno/{{ aluno.id }}/update/"><span><i class="fas fa-edit"></i></span></td>
+                        <td><a href="/delete/{{ aluno.id }}"><span><i class="fas fa-trash"></i></span></td>
                     </tr>
                 {% empty %}
                     <tr>

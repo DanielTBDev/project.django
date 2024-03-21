@@ -2,7 +2,7 @@ from .models import Aluno
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy, reverse
-from django.views.generic.edit import UpdateView, CreateView
+from django.views.generic.edit import UpdateView
 from .forms import AlunoForm
 
 def alunoView(request):
@@ -36,6 +36,11 @@ def aluno_create_view(request):
         form = AlunoForm()
 
     return render(request, 'main/aluno_form.html', {'form': form})
+
+def deleteAluno(request, id):
+    aluno = get_object_or_404(Aluno, pk=id)
+    aluno.delete()
+    return redirect('/')
 
 class AlunoUpdateView(UpdateView):
     model = Aluno
